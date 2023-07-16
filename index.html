@@ -43,14 +43,17 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            width: 100%;
         }
 
         .content {
-            text-align: right;
             flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        }
+
+        .metaData {
+            text-align: right;
+
+            margin: 0 15px;
         }
 
         .footer {
@@ -58,6 +61,8 @@
 
             display: flex;
             justify-content: space-between;
+
+            margin: 15px;
         }
 
         .big {
@@ -80,6 +85,23 @@
         .mb-2 {
             margin-bottom: 15px;
         }
+
+        @media (min-width: 500px) {
+            .container {
+                width: 500px;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .metaData, .footer {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
     </style>
 </head>
 
@@ -87,11 +109,13 @@
     <div class="container">
         <div class="content">
             <canvas class="mb-1"></canvas>
-            <div class="big" id="title"></div>
-            <div class="small italic mb-2">(<span id="variation"></span>)</div>
-            <div class="small" id="artist"></div>
-            <div class="small">
-                <span id="year"></span> - <span id="type"></span>
+            <div class="metaData">
+                <div class="big" id="title"></div>
+                <div class="small italic mb-2">(<span id="variation"></span>)</div>
+                <div class="small" id="artist"></div>
+                <div class="small">
+                    <span id="year"></span> - <span id="type"></span>
+                </div>
             </div>
         </div>
         <div class="footer mb-2 small">
@@ -99,7 +123,7 @@
                 <a href="mailto:mail@philipp-anders.de">mail@philipp-anders.de</a>
             </div>
             <div>
-                <a href="https://soundcloud.com/dj_lil_paris">soundcloud</a> | 
+                <a href="https://soundcloud.com/dj_lil_paris">soundcloud</a> |
                 <a href="https://www.linkedin.com/in/philipp-anders/">LinkedIn</a>
             </div>
         </div>
@@ -136,16 +160,16 @@
             }
 
             resize() {
-                var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-                
-                if (windowWidth >= 500) {
+                var containerWidth = document.querySelector(".container").offsetWidth;
+
+                if (containerWidth >= 500) {
                     // desktop view
                     this.canvas.width = 500;
                     this.canvas.height = 500;
                 } else {
                     // mobile view
-                    this.canvas.width = windowWidth;
-                    this.canvas.height = windowWidth;
+                    this.canvas.width = containerWidth;
+                    this.canvas.height = containerWidth;
                 }
             }
 
