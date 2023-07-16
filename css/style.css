@@ -16,7 +16,6 @@
     }
 }
 
-
 body {
     font-family: "VictorMono";
 
@@ -36,11 +35,12 @@ body {
 
 a {
     color: var(--text-color);
-    text-decoration: underline;
+    text-decoration: none;
+    filter: opacity(0.6);
 }
 
 a:hover {
-    text-decoration: none;
+    filter: opacity(1);
 }
 
 .container {
@@ -61,12 +61,20 @@ a:hover {
 }
 
 .footer {
-    filter: opacity(0.6);
 
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 
     margin: 15px;
+}
+
+.footer__left {
+    flex: 1 1 auto;
+}
+
+.footer__icon {
+    height: 20px;
+    margin-left: 10px;
 }
 
 .big {
