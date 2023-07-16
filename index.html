@@ -68,24 +68,17 @@
             <span id="year"></span> - <span id="type"></span>
         </div>
     </div>
+
     <script>
-        const colorScheme = initScholorScheme();
-
-        function updateDesignDescription() {
-            const metaData = {
-                title: "Dots",
-                variation: colorScheme.join(","),
-                artist: "Philipp Anders",
-                year: 2023,
-                type: "Javascript on canvas"
-            }
-            document.querySelector("#title").textContent = metaData.title
-            document.querySelector("#variation").textContent = metaData.variation
-            document.querySelector("#artist").textContent = metaData.artist
-            document.querySelector("#year").textContent = metaData.year
-            document.querySelector("#type").textContent = metaData.type
+        // library functions
+        function updateDesignDescription(metaDataInfo) {
+            document.querySelector("#title").textContent = metaDataInfo.title
+            document.querySelector("#variation").textContent = metaDataInfo.variation
+            document.querySelector("#artist").textContent = metaDataInfo.artist
+            document.querySelector("#year").textContent = metaDataInfo.year
+            document.querySelector("#type").textContent = metaDataInfo.type
         }
-
+  
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -97,7 +90,9 @@
         function getRandomBool(probability) {
             return Math.random() < Math.max(0.1, probability);
         }
+    </script>
 
+    <script>
         class Dot {
             constructor(x, y, radius, color) {
                 this.x = x;
@@ -144,11 +139,20 @@
             return shuffled.slice(0, getRandomNumber(3, 4));
         }
 
-        var canvas = document.getElementById("canvas");
-        var context = canvas.getContext("2d");
-
         async function main() {
-            updateDesignDescription();
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            const colorScheme = initScholorScheme();
+
+            updateDesignDescription({
+                title: "Dots",
+                variation: colorScheme.join(","),
+                artist: "Philipp Anders",
+                year: 2023,
+                type: "Javascript on canvas"
+            });
+
             dots = []
 
             while (true) {
