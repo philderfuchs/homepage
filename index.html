@@ -136,8 +136,17 @@
             }
 
             resize() {
-                this.canvas.width = 500;
-                this.canvas.height = 500;
+                var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                
+                if (windowWidth >= 500) {
+                    // desktop view
+                    this.canvas.width = 500;
+                    this.canvas.height = 500;
+                } else {
+                    // mobile view
+                    this.canvas.width = windowWidth;
+                    this.canvas.height = windowWidth;
+                }
             }
 
             getWidth() {
