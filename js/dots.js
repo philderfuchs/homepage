@@ -1,5 +1,3 @@
-var canvas = new Canvas();
-
 class Dot {
     constructor(x, y, radius, color) {
         this.x = x;
@@ -39,14 +37,8 @@ function spawnDot(colors) {
     )
 }
 
-function initScholorScheme() {
-    var colors = ["#525FE1", "#F86F03", "#FFA41B", "#FFF6F4", "#A0C49D", "#E966A0", "#090580", "#F1D4E5", "#00DFA2", "#884A39", "#116D6E", "#FFE7A0", "#00C4FF"]
-    const shuffled = colors.sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, getRandomNumber(3, 4));
-}
-
 async function main() {
-    const colorScheme = initScholorScheme();
+    const colorScheme = initScholorScheme(3, 4);
 
     updateDesignDescription({
         title: "Dots",
