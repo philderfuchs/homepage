@@ -49,7 +49,6 @@ async function main() {
 
     var currentColor = pickColor(colorScheme);
     var trainIsRunning = true;
-    var iteration = 0;
     while (true) {
         canvas.clear();
         var dotSpawnChance = trainIsRunning ? 0.9 : 0.02;
@@ -63,9 +62,7 @@ async function main() {
 
         dots.forEach((dot) => { dot.draw(); dot.move(); })
 
-        iteration++;
         await sleep(10);
-
     }
 }
 
