@@ -30,10 +30,6 @@
             color: white;
         }
 
-        #canvas {
-            margin-bottom: 20px;
-        }
-
         .container {
             width: 400px;
             text-align: right;
@@ -52,7 +48,11 @@
             font-style: italic;
         }
 
-        .mb {
+        .mb-1 {
+            margin-bottom: 5px;
+        }
+
+        .mb-2 {
             margin-bottom: 15px;
         }
     </style>
@@ -60,9 +60,9 @@
 
 <body>
     <div class="container">
-        <canvas id="canvas" width="400" height="400"></canvas>
+        <canvas class="mb-1"></canvas>
         <div class="big" id="title"></div>
-        <div class="small italic mb">(<span id="variation"></span>)</div>
+        <div class="small italic mb-2">(<span id="variation"></span>)</div>
         <div class="small" id="artist"></div>
         <div class="small">
             <span id="year"></span> - <span id="type"></span>
@@ -78,7 +78,7 @@
             document.querySelector("#year").textContent = metaDataInfo.year
             document.querySelector("#type").textContent = metaDataInfo.type
         }
-  
+
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -90,9 +90,33 @@
         function getRandomBool(probability) {
             return Math.random() < Math.max(0.1, probability);
         }
+
+
+        class Canvas {
+            constructor() {
+                this.canvas = document.querySelector("canvas");
+                this.context = this.canvas.getContext("2d")
+                this.resize();
+            }
+
+            resize() {
+                this.canvas.width = 400;
+                this.canvas.height = 400;
+            }
+
+            getWidth() {
+                return this.canvas.width;
+            }
+
+            getHeight() {
+                return this.canvas.height;
+            }
+        }
     </script>
 
     <script>
+        var canvas = new Canvas();
+
         class Dot {
             constructor(x, y, radius, color) {
                 this.x = x;
@@ -103,12 +127,11 @@
             }
 
             move() {
-                if (getRandomBool(this.y / 400)) {
+                if (getRandomBool(this.y / canvas.getHeight())) {
 
                     if (this.down) { this.y++; } else { this.y--; }
 
-
-                    if (this.y >= 400) {
+                    if (this.y >= canvas.getHeight()) {
                         this.down = false;
                     } else if (this.y <= 0) {
                         this.down = true;
@@ -116,17 +139,17 @@
                 }
             }
 
-            draw(context) {
-                context.fillStyle = this.color;
-                context.beginPath();
-                context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-                context.fill();
+            draw() {
+                canvas.context.fillStyle = this.color;
+                canvas.context.beginPath();
+                canvas.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                canvas.context.fill();
             }
         }
 
         function spawnDot(colors) {
             return new Dot(
-                getRandomNumber(0, 400),
+                getRandomNumber(0, canvas.getWidth()),
                 -10,
                 10,
                 colors[getRandomNumber(0, colors.length - 1)]
@@ -140,9 +163,6 @@
         }
 
         async function main() {
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
-
             const colorScheme = initScholorScheme();
 
             updateDesignDescription({
@@ -157,7 +177,7 @@
 
             while (true) {
                 if (dots.length < 100) dots.push(spawnDot(colorScheme));
-                dots.forEach((dot) => { dot.draw(context); dot.move(); })
+                dots.forEach((dot) => { dot.draw(); dot.move(); })
                 await sleep(1);
             }
         }
