@@ -27,7 +27,7 @@ class Square {
 }
 
 function spawnSquare(color) {
-    var size = canvas.getHeight() / 8;
+    var size = canvas.getHeight() / 9;
     return new Square(-1*size, 0, size, color)
 }
 
