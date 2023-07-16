@@ -27,12 +27,37 @@
             justify-content: center;
 
             background: black;
-            color: white;
+            color: #fffc;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
         }
 
         .container {
-            width: 400px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .content {
             text-align: right;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footer {
+            color: #fff8;
+
+            display: flex;
+            justify-content: space-between;
         }
 
         .big {
@@ -60,12 +85,23 @@
 
 <body>
     <div class="container">
-        <canvas class="mb-1"></canvas>
-        <div class="big" id="title"></div>
-        <div class="small italic mb-2">(<span id="variation"></span>)</div>
-        <div class="small" id="artist"></div>
-        <div class="small">
-            <span id="year"></span> - <span id="type"></span>
+        <div class="content">
+            <canvas class="mb-1"></canvas>
+            <div class="big" id="title"></div>
+            <div class="small italic mb-2">(<span id="variation"></span>)</div>
+            <div class="small" id="artist"></div>
+            <div class="small">
+                <span id="year"></span> - <span id="type"></span>
+            </div>
+        </div>
+        <div class="footer mb-2 small">
+            <div>
+                <a href="mailto:mail@philipp-anders.de">mail@philipp-anders.de</a>
+            </div>
+            <div>
+                <a href="https://soundcloud.com/dj_lil_paris">soundcloud</a> | 
+                <a href="https://www.linkedin.com/in/philipp-anders/">LinkedIn</a>
+            </div>
         </div>
     </div>
 
@@ -100,8 +136,8 @@
             }
 
             resize() {
-                this.canvas.width = 400;
-                this.canvas.height = 400;
+                this.canvas.width = 500;
+                this.canvas.height = 500;
             }
 
             getWidth() {
