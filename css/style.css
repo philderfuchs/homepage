@@ -4,6 +4,19 @@
     /* Additional font formats can be added for compatibility with different browsers */
 }
 
+:root {
+    --bg-color: #fff;
+    --text-color: #000b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: black;
+        --text-color: #fffc;
+    }
+}
+
+
 body {
     font-family: "VictorMono";
 
@@ -17,12 +30,12 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: black;
-    color: #fffc;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 a {
-    color: inherit;
+    color: var(--text-color);
     text-decoration: underline;
 }
 
@@ -48,7 +61,7 @@ a:hover {
 }
 
 .footer {
-    color: #fff8;
+    filter: opacity(0.6);
 
     display: flex;
     justify-content: space-between;
@@ -88,7 +101,8 @@ a:hover {
         justify-content: center;
     }
 
-    .metaData, .footer {
+    .metaData,
+    .footer {
         margin-left: 0;
         margin-right: 0;
     }
