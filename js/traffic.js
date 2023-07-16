@@ -38,7 +38,7 @@ async function main() {
     const colorScheme = initScholorScheme(2, 4)
 
     updateDesignDescription({
-        title: "Trains",
+        title: "Traffic",
         variation: colorScheme.join(","),
         artist: "Philipp Anders",
         year: 2023,
