@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "VictorMono";
+    src: url("../fonts/Victor_Mono/VictorMono-VariableFont_wght.ttf");
+    /* Additional font formats can be added for compatibility with different browsers */
+}
+
+body {
+    font-family: "VictorMono";
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+    color: #fffc;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    flex: 1 1 auto;
+}
+
+.metaData {
+    text-align: right;
+
+    margin: 0 15px;
+}
+
+.footer {
+    color: #fff8;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 15px;
+}
+
+.big {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.small {
+    font-size: 0.8rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.mb-1 {
+    margin-bottom: 5px;
+}
+
+.mb-2 {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 500px) {
+    .container {
+        width: 500px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .metaData, .footer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
