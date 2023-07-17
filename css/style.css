@@ -61,7 +61,7 @@ a:hover {
 }
 
 .description {
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: 100px;
 
     padding: 0 var(--padding);
@@ -128,10 +128,10 @@ a:hover {
 
 @media (min-width: 500px) {
     canvas {
-        margin-top: calc(50vh - 250px); 
-        margin-top: -webkit-calc(50vh - 250px); 
-        margin-top:    -moz-calc(50vh - 250px); 
-        margin-top:      -o-calc(50vh - 250px);
+        margin-top: calc(50vh - 300px); 
+        margin-top: -webkit-calc(50vh - 300px); 
+        margin-top:    -moz-calc(50vh - 300px); 
+        margin-top:      -o-calc(50vh - 300px);
     }
 
     .metaData,
