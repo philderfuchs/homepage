@@ -8,6 +8,7 @@
     --bg-color: #fff;
     --text-color: #000b;
     --content-width: 100%;
+    --padding: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,13 +43,11 @@ body {
 }
 
 a {
-    color: var(--text-color);
-    text-decoration: none;
-    filter: opacity(0.6);
+    color: inherit;
 }
 
 a:hover {
-    filter: opacity(1);
+    text-decoration: none;
 }
 
 .container {
@@ -58,11 +57,20 @@ a:hover {
 .metaData {
     text-align: right;
 
-    padding: 0 15px;
+    padding: 0 var(--padding);
 }
 
 .description {
     margin-top: 50px;
+    margin-bottom: 100px;
+
+    padding: 0 var(--padding);
+
+    text-align: justify;
+}
+
+.description__icon {
+    height: .8rem;
 }
 
 .footer {
@@ -73,9 +81,9 @@ a:hover {
     align-items: center;
 
     width: var(--content-width);
-    padding: 15px;
+    padding: var(--padding);
 
-    background: white;
+    background: var(--bg-color);
 }
 
 .footer__left {
@@ -87,8 +95,18 @@ a:hover {
     margin-left: 10px;
 }
 
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    filter: opacity(0.6);
+}
+
+.footer a:hover {
+    filter: opacity(1);
+}
+
 .big {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
