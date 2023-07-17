@@ -7,6 +7,7 @@
 :root {
     --bg-color: #fff;
     --text-color: #000b;
+    --content-width: 100%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,11 +17,18 @@
     }
 }
 
+@media (min-width: 500px) {
+    :root {
+        --content-width: 500px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "VictorMono";
-
-    width: 100vw;
-    height: 100vh;
 
     padding: 0;
     margin: 0;
@@ -44,28 +52,30 @@ a:hover {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
-.content {
-    flex: 1 1 auto;
+    width: var(--content-width);
 }
 
 .metaData {
     text-align: right;
 
-    margin: 0 15px;
+    padding: 0 15px;
+}
+
+.description {
+    margin-top: 50px;
 }
 
 .footer {
+    position: fixed;
+    bottom: 0;
 
     display: flex;
     align-items: center;
 
-    margin: 15px;
+    width: var(--content-width);
+    padding: 15px;
+
+    background: white;
 }
 
 .footer__left {
@@ -99,19 +109,17 @@ a:hover {
 }
 
 @media (min-width: 500px) {
-    .container {
-        width: 500px;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    canvas {
+        margin-top: calc(50vh - 250px); 
+        margin-top: -webkit-calc(50vh - 250px); 
+        margin-top:    -moz-calc(50vh - 250px); 
+        margin-top:      -o-calc(50vh - 250px);
     }
 
     .metaData,
+    .description,
     .footer {
-        margin-left: 0;
-        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
