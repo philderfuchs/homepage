@@ -90,7 +90,6 @@ a:hover {
 
     background: var(--bg-color);
 
-    font-weight: bold;
     line-height: 0;
 }
 
@@ -165,6 +164,10 @@ a:hover {
 @media (min-width: 500px) {
     #impressum_desktop {
         display: inline;
+    }
+
+    .footer {
+        font-weight: bold;
     }
 
     .metaData,
