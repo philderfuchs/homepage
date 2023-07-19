@@ -58,11 +58,13 @@ a:hover {
     text-align: right;
 
     padding: 0 var(--padding);
+
+    padding-top: 5px;
+    height: 150px;
 }
 
 .description {
-    margin-top: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 
     padding: 0 var(--padding);
 
@@ -80,8 +82,11 @@ a:hover {
     display: flex;
     align-items: center;
 
+    height: 40px;
     width: var(--content-width);
-    padding: var(--padding);
+
+    padding-left: var(--padding);
+    padding-right:  var(--padding);
 
     background: var(--bg-color);
 }
@@ -126,14 +131,30 @@ a:hover {
     margin-bottom: 15px;
 }
 
-@media (min-width: 500px) {
-    canvas {
-        margin-top: calc(50vh - 300px); 
-        margin-top: -webkit-calc(50vh - 300px); 
-        margin-top:    -moz-calc(50vh - 300px); 
-        margin-top:      -o-calc(50vh - 300px);
-    }
+.artwork {
+    margin-top: 0;
+}
 
+@media (min-height: 700px) {
+    .artwork {
+        margin-top: 50px;
+    }
+}
+
+@media (min-height: 850px) {
+    .artwork {
+        margin-top: 200px;
+    }
+}
+
+/* always force no top margin on mobile */
+@media (max-width: 500px) {
+    .artwork {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 500px) {
     .metaData,
     .description,
     .footer {
