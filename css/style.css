@@ -6,7 +6,7 @@
 
 :root {
     --bg-color: #fff;
-    --text-color: #000b;
+    --text-color: #000c;
     --content-width: 100%;
     --padding: 15px;
 }
@@ -91,6 +91,7 @@ a:hover {
     background: var(--bg-color);
 
     line-height: 0;
+    font-weight: 500;
 }
 
 .footer__right {
@@ -98,9 +99,15 @@ a:hover {
     text-align: right;
 }
 
+.footer__text {
+    filter: opacity(0.6);
+}
+
 .footer__icon {
     height: 1rem;
     margin-right: 10px;
+    filter: opacity(0.85);
+
 }
 
 .footer a {
@@ -115,7 +122,7 @@ a:hover {
 
 .big {
     font-size: 1.3rem;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .small {
@@ -164,10 +171,6 @@ a:hover {
 @media (min-width: 500px) {
     #impressum_desktop {
         display: inline;
-    }
-
-    .footer {
-        font-weight: bold;
     }
 
     .metaData,
