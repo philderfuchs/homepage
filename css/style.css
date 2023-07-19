@@ -89,15 +89,18 @@ a:hover {
     padding-right:  var(--padding);
 
     background: var(--bg-color);
+
+    font-weight: bold;
 }
 
-.footer__left {
+.footer__right {
     flex: 1 1 auto;
+    text-align: right;
 }
 
 .footer__icon {
     height: 1.2rem;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .footer a {
@@ -148,7 +151,7 @@ a:hover {
 }
 
 /* always force no top margin on mobile */
-@media (max-width: 500px) {
+@media (max-width: 499px) {
     .artwork {
         margin-top: 0;
     }
