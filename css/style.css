@@ -91,6 +91,7 @@ a:hover {
     background: var(--bg-color);
 
     font-weight: bold;
+    line-height: 0;
 }
 
 .footer__right {
@@ -150,6 +151,10 @@ a:hover {
     }
 }
 
+#impressum_desktop {
+    display: none;
+}
+
 /* always force no top margin on mobile */
 @media (max-width: 499px) {
     .artwork {
@@ -158,6 +163,10 @@ a:hover {
 }
 
 @media (min-width: 500px) {
+    #impressum_desktop {
+        display: inline;
+    }
+
     .metaData,
     .description,
     .footer {
